@@ -208,7 +208,7 @@ ESX.RegisterServerCallback('esx_policejob:getVehicleInfos', function(source, cb,
 				retrivedInfo.owner = xPlayer.getName()
 				cb(retrivedInfo)
 			else
-				MySQL.Async.fetchAll('SELECT name, firstname, lastname FROM users WHERE identifier = @identifier',  {
+				MySQL.Async.fetchAll('SELECT firstname, lastname FROM users WHERE identifier = @identifier',  {
 					['@identifier'] = result[1].owner
 				}, function(result2)
 					if result2[1] then
@@ -235,7 +235,7 @@ ESX.RegisterServerCallback('esx_policejob:getVehicleFromPlate', function(source,
 		['@plate'] = plate
 	}, function(result)
 		if result[1] then
-			MySQL.Async.fetchAll('SELECT name, firstname, lastname FROM users WHERE identifier = @identifier',  {
+			MySQL.Async.fetchAll('SELECT firstname, lastname FROM users WHERE identifier = @identifier',  {
 				['@identifier'] = result[1].owner
 			}, function(result2)
 
